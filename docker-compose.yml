@@ -1,0 +1,60 @@
+version: "3"
+
+services:
+  db_postgres:
+    image: kartoza/postgis:13.0
+    container_name: postgres-container
+    restart: on-failure
+    ports:
+      - "5432:5432"
+    networks:
+      - geolynked
+    healthcheck:
+      test: "exit 0"
+    hostname: "db_postgres"
+    volumes:
+      - postgres-data:/home/projects/data/postgres_data
+    environment:
+      - POSTGRES_DB=gis
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+
+  geolynked:
+    build:
+      context: ./geolynked/.
+      target: "develop-stage"
+    container_name: geolynked-container
+    networks:
+      - geolynked
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./geolynked:/geolynked"
+    command: /bin/sh -c "yarn && quasar dev"
+
+  geolynked_api:
+    build:
+      context: ./geolynked-api/.
+    container_name: geolynked-api-container
+    networks:
+      - geolynked
+    depends_on:
+      db_postgres:
+        condition: service_healthy
+    environment:
+      - DATABASE=gis
+      - DB_NAME=gis
+      - DATABASE_URL=postgres://docker:docker@postgres:5432/db
+      - DATABASE_USER=docker
+      - DATABASE_PASSWORD=docker
+      - PGHOST=db_postgres
+      - PORT=8081
+    ports:
+      - "8081:8081"
+    command: /bin/sh -c "yarn start"
+
+volumes:
+  postgres-data:
+networks:
+  geolynked:
+    external: false
