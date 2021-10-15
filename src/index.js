@@ -95,7 +95,7 @@ const getMe = async req => {
 
 const server = new ApolloServer({
   introspection: true,
-  playground: true,
+  playground: false,
   typeDefs: schema,
   resolvers,
   formatError: error => {
@@ -170,8 +170,8 @@ console.log('Running on ', process.env.API_HOST_URL, port);
 const initializeDatabase = async date => {
   await models.User.create(
     {
-      username: 'Yiannis Tsampouris',
-      email: 'ytsampouris@gmail.com',
+      username: 'admin',
+      email: 'admin@domain.com',
       password: '12345678',
       role: 'admin',
     }
