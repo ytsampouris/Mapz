@@ -36,6 +36,25 @@
           :key="link.title"
           v-bind="link"
         />
+        <a href="https://tidydox.herokuapp.com" target="_blank">
+          <q-item
+            clickable
+            tag="a"
+          >
+            <q-item-section
+              avatar
+            >
+              <q-icon name="inventory_2" />
+            </q-item-section>
+
+            <q-item-section>
+              <q-item-label>Διαχειριστής εγγράφων</q-item-label>
+              <q-item-label caption>
+                Μετάβαση
+              </q-item-label>
+            </q-item-section>
+          </q-item>
+        </a>
       </q-list>
     </q-drawer>
 
@@ -89,3 +108,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+a {
+  color: black;
+  text-decoration: none; /* no underline */
+}
+</style>
