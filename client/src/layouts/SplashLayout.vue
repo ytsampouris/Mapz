@@ -65,7 +65,7 @@ const linksData = [
     title: 'Πληροφορίες',
     caption: 'Πληροφορίες για την εφαρμογή',
     icon: 'info',
-    link: 'projectinfo'
+    link: '/'
   },
   {
     title: 'Είσοδος',
