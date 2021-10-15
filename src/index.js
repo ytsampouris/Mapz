@@ -95,7 +95,7 @@ const getMe = async req => {
 
 const server = new ApolloServer({
   introspection: true,
-  playground: false,
+  playground: true,
   typeDefs: schema,
   resolvers,
   formatError: error => {
