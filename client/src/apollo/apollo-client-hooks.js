@@ -6,7 +6,7 @@ export function apolloClientBeforeCreate(
     apolloClientConfigObj
   } /* { apolloClientConfigObj, app, router, store, ssrContext, urlPath, redirect } */
 ) {
-  const linkString = `${process.env.API_HOST_URL}/graphql`.replace(/['"]+/g, '');
+  const linkString = `${process.env.API_HOST_URL}graphql`.replace(/['"]+/g, '');
   // console.log('link apollo :: ', linkString.replace(/['"]+/g, ''));
   let link = new createUploadLink({
     uri: linkString
