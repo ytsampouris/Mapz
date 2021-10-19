@@ -12,7 +12,7 @@
         />
 
         <q-toolbar-title>
-          Geoportal
+          Biodiversity dataset
         </q-toolbar-title>
 
       </q-toolbar>
@@ -69,6 +69,12 @@ import EssentialLink from 'components/EssentialLink.vue'
 
 const linksData = [
   {
+    title: 'Πληροφορίες',
+    caption: 'Πληροφορίες για την εφαρμογή',
+    icon: 'info',
+    link: '/'
+  },
+  {
     title: 'Χάρτης',
     caption: 'Πλοήγηση στους χάρτες',
     icon: 'map',
@@ -79,12 +85,6 @@ const linksData = [
     caption: 'Πλοήγηση στα δεδομένα',
     icon: 'fa fa-database',
     link: '/database'
-  },
-  {
-    title: 'Πληροφορίες',
-    caption: 'Πληροφορίες για την εφαρμογή',
-    icon: 'info',
-    link: '/'
   },
   {
     title: 'Είσοδος',

@@ -12,7 +12,7 @@
         />
 
         <q-toolbar-title>
-          Geoportal
+          Biodiversity dataset
         </q-toolbar-title>
 
       </q-toolbar>
