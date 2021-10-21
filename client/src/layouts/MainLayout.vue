@@ -143,3 +143,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+a {
+  color: black;
+  text-decoration: none; /* no underline */
+}
+</style>

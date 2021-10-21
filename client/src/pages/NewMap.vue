@@ -126,7 +126,7 @@
               </div> -->
           </div>
 
-          <div v-if="visibleMetadata">
+          <div v-if="!visibleMetadata">
               <div class="row" md>
                 <div class="col q-ma-md">
                     <q-input v-model="details" label="Λεπτομέρειες" bottom-slots filled >

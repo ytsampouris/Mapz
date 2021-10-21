@@ -79,7 +79,8 @@ export default {
         visible,
         published,
         apikey,
-        dbtablename
+        dbtablename,
+        zindex
       },
       { models, secret },
     ) => {
@@ -97,7 +98,8 @@ export default {
         visible,
         published,
         apikey,
-        dbtablename
+        dbtablename,
+        zindex
       });
       console.log('addLayer: ', dbtablename);
       return layer;
