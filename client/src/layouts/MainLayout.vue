@@ -11,9 +11,9 @@
           @click="leftDrawerOpen = !leftDrawerOpen"
         />
 
-        <q-toolbar-title>
+        <!-- <q-toolbar-title>
           Biodiversity dataset
-        </q-toolbar-title>
+        </q-toolbar-title> -->
 
       </q-toolbar>
     </q-header>

@@ -11,10 +11,11 @@
           @click="leftDrawerOpen = !leftDrawerOpen"
         />
 
-        <q-toolbar-title>
+        <!-- <q-toolbar-title>
           Geoportal
-        </q-toolbar-title>
-        <div>
+        </q-toolbar-title> -->
+        <q-space /> 
+        <!-- <div> -->
           <q-btn flat round dense icon="fa fa-expand-arrows-alt" class="q-mr-xs" @click="zoomToExtent()"/>
           <q-btn flat round dense icon="room" @click="geolocation()"/>
           <q-btn flat round dense icon="info" class="q-mr-xs" @click="setMapStatus('info')"/>
@@ -22,7 +23,7 @@
           <q-btn flat round dense icon="architecture" class="q-mr-xs" @click="setMapStatus('measure')"/>
           <!-- <q-btn flat round dense icon="edit" @click="setMapStatus('draw')"/> -->
           <!-- <q-btn flat round dense icon="upload_file" @click="setMapStatus('dragdrop')"/> -->
-        </div>
+        <!-- </div> -->
       </q-toolbar>
     </q-header>
 

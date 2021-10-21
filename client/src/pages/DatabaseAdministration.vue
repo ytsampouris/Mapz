@@ -27,12 +27,18 @@
         class="my-sticky-column-table"
         :data="species"
         :columns="columns"
+        :filter="tableFilter"
         row-key="name"
         wrap-cells
       >
       <template v-slot:top="props">
         <div class="col-2 q-table__title">Είδη</div>
         <q-space />
+        <q-input borderless dense debounce="300" v-model="tableFilter" placeholder="Search">
+          <template v-slot:append>
+            <q-icon name="search" />
+          </template>
+        </q-input>
         <q-btn
           dense
           :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
@@ -319,6 +325,7 @@ export default {
   },
   data() {
     return {
+      tableFilter: '',
       addRowDialog: false,
       rowLoading: false,
       rowsChanged: [],

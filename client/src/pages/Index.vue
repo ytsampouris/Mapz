@@ -8,6 +8,66 @@
       >
       <span class="text-h5">Φορέας Διαχείρισης Εθνικού Δρυμού Αίνου</span>
     </q-header>
+
+    <div class="q-pa-md">
+      <div class="row items-center">
+        <div class="col">
+          <img
+            class="intro_img"
+            alt="Quasar logo"
+            src="~assets/intro_1.png"
+          >
+        </div>
+        <div class="col text-h4">
+          Πολλαπλά επίπεδα πληροφορίας
+        </div>
+      </div>
+
+      <div class="row items-center">
+        <div class="col text-h4">
+          Αναλυτικά μεταδεδομένα για κάθε θεματικό χαρτογραφικό επίπεδο
+        </div>
+        <div class="col">
+          <img
+            class="intro_img"
+            alt="Quasar logo"
+            src="~assets/intro_2.png"
+          >
+        </div>
+      </div>
+
+      <div class="row items-center">
+        <div class="col">
+          <img
+            class="intro_img"
+            alt="Quasar logo"
+            src="~assets/intro_3.png"
+          >
+        </div>
+        <div class="col text-h4">
+          Αναζήτηση πληροφοριών για κάθε σημείο, γραμμή ή πολύγωνο (Info Tool)
+        </div>
+      </div>
+
+      <div class="row items-center">
+        <div class="col text-h4">
+          Βάση δεδομένων με τα είδη χλωρίδας και πανίδας
+        </div>
+        <div class="col">
+          <img
+            class="intro_img"
+            alt="Quasar logo"
+            src="~assets/intro_4.png"
+          >
+        </div>
+      </div>
+
+    </div>
+
+      <q-btn color="red" icon-right="fab fa-youtube" label="Οδηγίες χρήσης" type="a" target="new_tab" href="https://youtu.be/IVzWHCsG4yM" />
+
+    <q-separator /> 
+
     <div style="vertical-align: top; height: 100%;" class="full-height full-width">
       <span class="text-h5">Έργο: Δημιουργία και παραμετροποίηση Βάσεων Δεδομένων Βιοποικιλότητας, Γεωχωρικών Δεδομένων και Ανθρωπογενών πιέσεων</span>
       <div class="text-justify">
@@ -74,6 +134,7 @@
         </div>
         <div class="col-3">
           Φορέας Διαχείρισης Εθνικού Δρυμού Αίνου
+          <br>
           <q-btn-group outline>
             <q-btn outline color="white" icon-right="fab fa-instagram" type="a" href="https://www.instagram.com/aenosnationalpark/" target="new_tab"/>
             <q-btn outline color="white" icon-right="fab fa-facebook" type="a" href="https://www.facebook.com/aenosnationalpark/" target="new_tab" />
@@ -82,6 +143,7 @@
           </q-btn-group>
           <br>
           Γεωπάρκο Κεφαλονιάς - Ιθάκης
+          <br>
           <q-btn-group outline>
             <q-btn outline color="white" icon-right="fab fa-instagram" type="a" href="https://www.instagram.com/kefaloniageopark/" target="new_tab"/>
             <q-btn outline color="white" icon-right="fab fa-facebook" type="a" href="https://www.facebook.com/Kefaloniaithakageopark/" target="new_tab" />
@@ -106,3 +168,13 @@ export default {
   }
 }
 </script>
+<style scoped>
+  .intro_img {
+    width: 80%;
+    border:2px solid #fff;
+    box-shadow: 10px 10px 5px #ccc;
+    -moz-box-shadow: 10px 10px 5px #ccc;
+    -webkit-box-shadow: 10px 10px 5px #ccc;
+    -khtml-box-shadow: 10px 10px 5px #ccc;
+  }
+</style>
