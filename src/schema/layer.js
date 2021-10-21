@@ -22,6 +22,7 @@ export default gql`
       published: Boolean
       apikey: String
       dbtablename: String
+      zindex: Int
     ): Layer!
     updateLayer(
       id: String

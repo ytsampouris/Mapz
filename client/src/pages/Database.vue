@@ -1,5 +1,9 @@
 <template>
   <q-page padding>
+    <q-btn color="white" flat icon-right="fab fa-youtube" label="Οδηγίες χρήσης" type="a" target="new_tab" href="https://www.youtube.com/playlist?list=PLwQ-2nYs008a8uMgJw64h7NcyjxtLbCUa" />
+    <br>
+    <q-btn color="red" icon-right="fab fa-youtube" label="Οδηγίες χρήσης" type="a" target="new_tab" href="https://www.youtube.com/playlist?list=PLwQ-2nYs008a8uMgJw64h7NcyjxtLbCUa" />
+
     <div v-if="$apollo.loading" style="width: 100%; height: 100vh; text-align: center; vertical-align: middle; z-index: 999; color: grey; position: absolute; top: 40%">
       <q-spinner-gears
         color="grey"
