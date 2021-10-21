@@ -51,6 +51,7 @@ export const getSpecies = gql`
   query getSpecies {
     species {
       id
+      type
       species
       family
       classification
@@ -64,10 +65,13 @@ export const getSpecies = gql`
       date
       source
       eunis
+      latin_name
+      taxonomy
+      common_name
+      directive_09
     }
   }
 `;
-
 
 export const getUsers = gql`
   query getUsers {

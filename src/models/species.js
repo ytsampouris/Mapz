@@ -5,6 +5,21 @@ const species = (sequelize, DataTypes) => {
       defaultValue: sequelize.UUIDV4,
       primaryKey: true
     },
+    type: {
+      type: DataTypes.STRING
+    },
+    latin_name: {
+      type: DataTypes.STRING
+    },
+    taxonomy: {
+      type: DataTypes.STRING
+    },
+    common_name: {
+      type: DataTypes.STRING
+    },
+    directive_09: {
+      type: DataTypes.STRING
+    },
     species: {
       type: DataTypes.STRING
     },

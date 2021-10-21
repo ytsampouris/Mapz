@@ -7,6 +7,7 @@ export default gql`
 
   extend type Mutation {
     addSpecies(
+      type: String
       species: String
       family: String
       classification: String
@@ -20,9 +21,14 @@ export default gql`
       date: String
       source: String
       eunis: String
+      latin_name: String
+      taxonomy: String
+      common_name: String
+      directive_09: String
     ): Species!
     updateSpecies(
       id: String
+      type: String
       species: String
       family: String
       classification: String
@@ -36,12 +42,17 @@ export default gql`
       date: String
       source: String
       eunis: String
+      latin_name: String
+      taxonomy: String
+      common_name: String
+      directive_09: String
     ): Species!
     deleteSpecies(id: String): Boolean
   }
 
   type Species {
     id: String
+    type: String
     species: String
     family: String
     classification: String
@@ -55,5 +66,9 @@ export default gql`
     date: String
     source: String
     eunis: String
+    latin_name: String
+    taxonomy: String
+    common_name: String
+    directive_09: String
   }
 `;

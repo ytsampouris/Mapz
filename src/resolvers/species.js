@@ -9,7 +9,7 @@ export default {
     species: async (parent, args, { models }) => {
       console.log('getting species table');
       return await models.Species.findAll();
-    }
+    },
   },
 
   Mutation: {
@@ -17,6 +17,7 @@ export default {
       isAuthenticated, isAdmin, 
       async ( parent,
       {
+        type,
         species,
         family,
         classification,
@@ -28,12 +29,17 @@ export default {
         bonn,
         cites,
         date,
-        source
+        source,
+        latin_name,
+        taxonomy,
+        common_name,
+        directive_09
       },
       { models, me },
     ) => {
       const newSpecies = await models.Species.create({
         id: uuid(),
+        type,
         species,
         family,
         classification,
@@ -45,7 +51,11 @@ export default {
         bonn,
         cites,
         date,
-        source
+        source,
+        latin_name,
+        taxonomy,
+        common_name,
+        directive_09
       });
 
       return newSpecies;
@@ -53,9 +63,9 @@ export default {
 
     updateSpecies: combineResolvers(
       isAuthenticated, isAdmin,
-      async (parent, { id, species, family, classification, n2k, code_n2k, iunc, directive_92, bern, bonn, cites, date, source, eunis }, { models, me }) => {
+      async (parent, { id, type, species, family, classification, n2k, code_n2k, iunc, directive_92, bern, bonn, cites, date, source, eunis, latin_name, taxonomy, common_name, directive_09 }, { models, me }) => {
         const speciesUpdate = await models.Species.findById(id);
-        return await speciesUpdate.update({ species, family, classification, n2k, code_n2k, iunc, directive_92, bern, bonn, cites, date, source, eunis });
+        return await speciesUpdate.update({ type, species, family, classification, n2k, code_n2k, iunc, directive_92, bern, bonn, cites, date, source, eunis, latin_name, taxonomy, common_name, directive_09 });
       },
     ),
 
