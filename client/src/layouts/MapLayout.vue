@@ -24,6 +24,7 @@
           <!-- <q-btn flat round dense icon="edit" @click="setMapStatus('draw')"/> -->
           <!-- <q-btn flat round dense icon="upload_file" @click="setMapStatus('dragdrop')"/> -->
         <!-- </div> -->
+          <q-btn flat round dense icon="fab fa-youtube" color="white" class="q-mr-xs" href="https://youtu.be/IVzWHCsG4yM" type="a" target="new_window"/>
       </q-toolbar>
     </q-header>
 

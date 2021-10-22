@@ -1,8 +1,8 @@
 <template>
   <q-page padding>
-    <q-btn color="white" flat icon-right="fab fa-youtube" label="Οδηγίες χρήσης" type="a" target="new_tab" href="https://www.youtube.com/playlist?list=PLwQ-2nYs008a8uMgJw64h7NcyjxtLbCUa" />
+    <q-btn color="white" flat icon-right="fab fa-youtube" label="Οδηγίες χρήσης" type="a" target="new_tab" href="https://youtu.be/z5GWP81IJEg" />
     <br>
-    <q-btn color="red" icon-right="fab fa-youtube" label="Οδηγίες χρήσης" type="a" target="new_tab" href="https://www.youtube.com/playlist?list=PLwQ-2nYs008a8uMgJw64h7NcyjxtLbCUa" />
+    <q-btn color="red" icon-right="fab fa-youtube" label="Οδηγίες χρήσης" type="a" target="new_tab" href="https://youtu.be/z5GWP81IJEg" />
     <div v-if="$apollo.loading" style="width: 100%; height: 50%; text-align: center; vertical-align: middle; z-index: 999; color: grey; position: absolute;">
       <div style="top: 40%; width: 100%; height: 100%; position: absolute;">
         <q-spinner-gears
@@ -65,10 +65,38 @@
             <q-btn icon="delete" dense flat color="negative" @click="deleteSpecies(props.row.id)"></q-btn>
           </q-td>
 
+          <q-td key="type" :props="props">
+            {{ props.row.type }}
+            <q-popup-edit v-model="props.row.type">
+              <q-input v-model="props.row.type" dense autofocus counter @input="trackRowChanges(props.row)" />
+            </q-popup-edit>
+          </q-td>
+
+          <q-td key="latin_name" :props="props">
+            {{ props.row.latin_name }}
+            <q-popup-edit v-model="props.row.latin_name">
+              <q-input v-model="props.row.latin_name" dense autofocus counter @input="trackRowChanges(props.row)" />
+            </q-popup-edit>
+          </q-td>
+
           <q-td key="species" :props="props">
             {{ props.row.species }}
             <q-popup-edit v-model="props.row.species">
               <q-input v-model="props.row.species" dense autofocus counter @input="trackRowChanges(props.row)" />
+            </q-popup-edit>
+          </q-td>
+
+          <q-td key="common_name" :props="props">
+            {{ props.row.common_name }}
+            <q-popup-edit v-model="props.row.common_name">
+              <q-input v-model="props.row.common_name" dense autofocus counter @input="trackRowChanges(props.row)" />
+            </q-popup-edit>
+          </q-td>
+
+          <q-td key="taxonomy" :props="props">
+            {{ props.row.taxonomy }}
+            <q-popup-edit v-model="props.row.taxonomy">
+              <q-input v-model="props.row.taxonomy" dense autofocus counter @input="trackRowChanges(props.row)" />
             </q-popup-edit>
           </q-td>
 
@@ -86,17 +114,17 @@
             </q-popup-edit>
           </q-td>
 
-          <q-td key="code_n2k" :props="props">
-            {{ props.row.code_n2k }}
-            <q-popup-edit v-model="props.row.code_n2k">
-              <q-input v-model="props.row.code_n2k" dense autofocus counter @input="trackRowChanges(props.row)" />
-            </q-popup-edit>
-          </q-td>
-
           <q-td key="n2k" :props="props">
             {{ props.row.n2k }}
             <q-popup-edit v-model="props.row.n2k">
               <q-input v-model="props.row.n2k" dense autofocus counter @input="trackRowChanges(props.row)" />
+            </q-popup-edit>
+          </q-td>
+
+          <q-td key="code_n2k" :props="props">
+            {{ props.row.code_n2k }}
+            <q-popup-edit v-model="props.row.code_n2k">
+              <q-input v-model="props.row.code_n2k" dense autofocus counter @input="trackRowChanges(props.row)" />
             </q-popup-edit>
           </q-td>
 
@@ -111,6 +139,13 @@
             {{ props.row.directive_92 }}
             <q-popup-edit v-model="props.row.directive_92">
               <q-input v-model="props.row.directive_92" dense autofocus counter @input="trackRowChanges(props.row)" />
+            </q-popup-edit>
+          </q-td>
+
+          <q-td key="directive_09" :props="props">
+            {{ props.row.directive_09 }}
+            <q-popup-edit v-model="props.row.directive_09">
+              <q-input v-model="props.row.directive_09" dense autofocus counter @input="trackRowChanges(props.row)" />
             </q-popup-edit>
           </q-td>
 
@@ -177,13 +212,18 @@
           </q-card-section>
 
           <q-card-section class="q-pt-none">
+            <q-input v-model="new_type" dense label="Κατηγορία (fauna/flora)" />
+            <q-input v-model="new_latin_name" dense label="Φύλο" />
             <q-input v-model="new_species" dense label="Είδος" />
             <q-input v-model="new_family" dense label="Οικογένεια" />
-            <q-input v-model="new_classification" dense label="Τάξη" />
+            <q-input v-model="new_classification" dense label="Κλάση" />
+            <q-input v-model="new_taxonomy" dense label="Τάξη" />
+            <q-input v-model="new_common_name" dense label="Κοινή ονομασία" />
             <q-input v-model="new_n2k" dense label="Κωδικός Ν2Κ" />
             <q-input v-model="new_code_n2k" dense label="Περιοχή Ν2Κ" />
             <q-input v-model="new_iunc" dense label="IUNC" />
             <q-input v-model="new_directive_92" dense label="Οδηγία 92/43/ΕΟΚ" />
+            <q-input v-model="new_directive_09" dense label="Οδηγία 2009/147/ΕΚ" />
             <q-input v-model="new_bern" dense label="Σύμβαση Βέρνης" />
             <q-input v-model="new_bonn" dense label="Σύμβαση Βόννης" />
             <q-input v-model="new_cites" dense label="Cites" />
@@ -237,7 +277,12 @@ export default {
             cites: row.cites,
             date: row.date,
             source: row.source,
-            eunis: row.eunis
+            eunis: row.eunis,
+            type: row.type,
+            common_name: row.common_name,
+            directive_09: row.directive_09,
+            latin_name: row.latin_name,
+            taxonomy: row.taxonomy
           },update: (cache, { data: { updateSpecies } }) => {
             this.rowLoading = false;
           }
@@ -258,6 +303,12 @@ export default {
       const date = this.new_date;
       const source = this.new_source;
       const eunis = this.new_eunis;
+      const type = this.new_type;
+      const common_name = this.new_common_name;
+      const directive_09 = this.new_directive_09;
+      const latin_name = this.new_latin_name;
+      const taxonomy = this.new_taxonomy;
+
       this.rowLoading = true;
 
       this.$apollo.mutate({
@@ -275,7 +326,12 @@ export default {
           cites,
           date,
           source,
-          eunis
+          eunis,
+          type,
+          latin_name,
+          common_name,
+          directive_09,
+          taxonomy
         },update: (cache, { data: { addSpecies } }) => {
           if (addSpecies) {
             const data = cache.readQuery({
@@ -342,6 +398,11 @@ export default {
       new_date: null,
       new_source: null,
       new_eunis: null,
+      new_type: null,
+      new_taxonomy: null,
+      new_common_name: null,
+      new_directive_09: null,
+      new_latin_name: null,
       columns: [
         {
           name: 'id',
@@ -350,6 +411,8 @@ export default {
           align: 'left',
           field: row => row.id,
         },
+        { name: 'type', label: 'Κατηγορία', field: 'type', sortable: true },
+        { name: 'latin_name', label: 'Φύλο', field: 'latin_name', sortable: true },
         {
           name: 'species',
           align: 'center',
@@ -357,6 +420,8 @@ export default {
           field: 'species',
           sortable: true
         },
+        { name: 'common_name', label: 'Κοινή ονομασία', field: 'common_name', sortable: true },
+        { name: 'taxonomy', label: 'Τάξη', field: 'taxonomy', sortable: true },
         { name: 'family', label: 'Οικογένεια', field: 'family', sortable: true },
         { name: 'classification', label: 'Τάξη', field: 'classification', sortable: true },
         {
@@ -381,6 +446,12 @@ export default {
           name: 'directive_92',
           label: 'Οδηγία 92/43/ΕΟΚ',
           field: 'directive_92',
+          sortable: true
+        },
+        {
+          name: 'directive_09',
+          label: 'Οδηγία 2009/147/ΕΚ',
+          field: 'directive_09',
           sortable: true
         },
         {
