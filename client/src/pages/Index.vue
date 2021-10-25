@@ -1,15 +1,6 @@
 <template>
   <q-page class="flex flex-center q-pa-md">
-    <q-header>
-      <img
-        alt="Quasar logo"
-        src="~assets/ainos_logo_monochrome.png"
-        width="100px"
-      >
-      <span class="text-h5">Φορέας Διαχείρισης Εθνικού Δρυμού Αίνου</span>
-    </q-header>
-
-    <div class="q-pa-md">
+    <div>
       <div class="row items-center">
         <div class="col">
           <img

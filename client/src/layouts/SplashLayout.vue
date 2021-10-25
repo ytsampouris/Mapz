@@ -11,10 +11,13 @@
           @click="leftDrawerOpen = !leftDrawerOpen"
         />
 
-        <!-- <q-toolbar-title>
-          Biodiversity dataset
-        </q-toolbar-title> -->
-
+      <span class="text-h5">Φορέας Διαχείρισης Εθνικού Δρυμού Αίνου</span>
+      <q-space />
+      <img
+        alt="Quasar logo"
+        src="~assets/ainos_logo_monochrome.png"
+        width="100px"
+      >
       </q-toolbar>
     </q-header>
 

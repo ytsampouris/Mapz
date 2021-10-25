@@ -1,7 +1,5 @@
 <template>
   <q-page padding>
-    <q-btn color="white" flat icon-right="fab fa-youtube" label="Οδηγίες χρήσης" type="a" target="new_tab" href="https://youtu.be/z5GWP81IJEg" />
-    <br>
     <q-btn color="red" icon-right="fab fa-youtube" label="Οδηγίες χρήσης" type="a" target="new_tab" href="https://youtu.be/z5GWP81IJEg" />
     <div v-if="$apollo.loading" style="width: 100%; height: 50%; text-align: center; vertical-align: middle; z-index: 999; color: grey; position: absolute;">
       <div style="top: 40%; width: 100%; height: 100%; position: absolute;">

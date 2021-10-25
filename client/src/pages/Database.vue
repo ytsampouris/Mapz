@@ -1,6 +1,5 @@
 <template>
   <q-page padding>
-    <br><br>
     <q-tabs
       v-model="tab"
       class="bg-green-8 text-white shadow-2"
