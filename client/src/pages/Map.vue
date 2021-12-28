@@ -589,7 +589,7 @@ export default {
                 visible: true,
                 preload: Infinity,
                 source: new BingMaps({
-                  key: layer.apiKey,
+                  key: 'AmoqV2FnhbcjFLmxo9gSD80EeLH21TK6pNEKlo3-hav1OYGNnt1Km_MYy-fDLxM8',
                   imagerySet: 'AerialWithLabelsOnDemand'
                 })
               })
